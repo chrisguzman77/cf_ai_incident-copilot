@@ -36,3 +36,33 @@ track actions, and generate postmortems — built entirely on Cloudflare.
 | **Memory / State** | Durable Objects persist conversation, hypothesis, actions, and findings per session |
 
 ## Project Structure
+apps/web/          → React frontend (Cloudflare Pages)
+workers/api/       → API Worker (routes, LLM calls, orchestration)
+workers/state/     → Durable Object (incident session state)
+workflows/postmortem/ → Workflow (multi-step postmortem generation)
+
+## Local Development
+```bash
+# Install dependencies
+npm install
+
+# Run the API worker locally
+cd workers/api && npx wrangler dev
+
+# Run the frontend locally
+cd apps/web && npm run dev
+```
+
+## Deployment
+```bash
+# Deploy in order: state → workflow → api → frontend
+cd workers/state && npx wrangler deploy
+cd workflows/postmortem && npx wrangler deploy
+cd workers/api && npx wrangler deploy
+cd apps/web && npm run build && npx wrangler pages deploy dist --project-name incident-copilot
+```
+
+## Screenshots
+
+*(Add screenshots of: the empty state, a mid-incident chat, the sidebar
+with hypothesis and actions, and a completed postmortem.)*
