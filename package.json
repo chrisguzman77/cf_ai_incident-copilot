@@ -1,0 +1,13 @@
+{
+  "name": "incident-copilot",
+  "private": true,
+  "workspaces": [
+    "apps/web",
+    "workers/api",
+    "workers/state",
+    "workflows/postmortem"
+  ],
+  "devDependencies": {
+    "wrangler": "^4.79.0"
+  }
+}

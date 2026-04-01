@@ -1,0 +1,25 @@
+name = "incident-api"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+# Bind Workers AI
+[ai]
+binding = "AI"
+
+# Bind the Durable Object from the state worker
+# "script_name" references the worker that exports the DO class
+[durable_objects]
+bindings = [
+  { name = "INCIDENT_SESSION", class_name = "IncidentSession", script_name = "incident-state" }
+]
+
+# CORS: allow your Pages domain
+[vars]
+ALLOWED_ORIGIN = "https://incident-copilot.pages.dev"
+
+
+[[workflows]]
+name = "postmortem-workflow"
+binding = "POSTMORTEM_WORKFLOW"
+class_name = "PostmortemWorkflow"
+script_name = "postmortem-workflow"

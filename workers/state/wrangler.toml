@@ -1,0 +1,14 @@
+name = "incident-state"
+main = "src/incident-session.ts"
+compatibility_date = "2025-01-01"
+
+# Declare the Durable Object binding
+[durable_objects]
+bindings = [
+  { name = "INCIDENT_SESSION", class_name = "IncidentSession" }
+]
+
+# Tell Cloudflare about the DO class for migrations
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["IncidentSession"]

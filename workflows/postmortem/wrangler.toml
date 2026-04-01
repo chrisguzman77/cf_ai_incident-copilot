@@ -1,0 +1,12 @@
+name = "postmortem-workflow"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[ai]
+binding = "AI"
+
+# Declare the workflow
+[[workflows]]
+name = "postmortem-workflow"
+binding = "POSTMORTEM_WORKFLOW"
+class_name = "PostmortemWorkflow"
