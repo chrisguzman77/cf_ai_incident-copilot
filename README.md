@@ -63,6 +63,5 @@ cd apps/web && npm run build && npx wrangler pages deploy dist --project-name in
 ```
 
 ## Screenshots
+<img width="2864" height="1632" alt="incident-reponse" src="https://github.com/user-attachments/assets/2e10f839-7248-4c28-b0c7-612afc5d435c" />
 
-*(Add screenshots of: the empty state, a mid-incident chat, the sidebar
-with hypothesis and actions, and a completed postmortem.)*
